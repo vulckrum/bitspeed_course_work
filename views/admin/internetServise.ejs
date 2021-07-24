@@ -1,0 +1,93 @@
+<%- include("../partials/head.ejs") %>
+    <div class="space-3">
+        <div class="container">
+            <form action="/admin/internetServise" method="post">
+                <div class="row">
+                    <div class="col-md-6 mb-3 mb-sm-6">
+                        <!-- Input -->
+                        <div class="js-form-message">
+                            <label class="input-label">Name</label>
+                            <input type="text" class="form-control" name="name" placeholder="Test" required="">
+                        </div>
+                        <!-- End Input -->
+                    </div>
+
+                    <div class="col-md-6 mb-3 mb-sm-6">
+                        <!-- Input -->
+                        <div class="js-form-message">
+                            <label class="input-label">Prise</label>
+                            <input type="number" class="form-control" name="price" placeholder="15" required="">
+                        </div>
+                        <!-- End Input -->
+                    </div>
+
+                    <div class="w-100"></div>
+
+                    <div class="col-md-6 mb-3 mb-sm-6">
+                        <!-- Input -->
+                        <div class="js-form-message">
+                            <label class="input-label">limit</label>
+                            <input type="number" class="form-control" name="limited" placeholder="4096" required="">
+                        </div>
+                        <!-- End Input -->
+                    </div>
+
+                    <div class="col-md-6 mb-3 mb-sm-6">
+                        <!-- Input -->
+                        <div class="js-form-message">
+                            <label class="input-label">Time</label>
+                            <input type="number" class="form-control" name="time" placeholder="30" required="">
+                        </div>
+                        <!-- End Input -->
+                    </div>
+
+                    <div class="w-100"></div>
+
+                    <div class="col-md-12 mb-3 mb-sm-12">
+                        <button type="submit" class="btn btn-primary w-100">Add tarif</button>
+                    </div>
+
+                    <div class="w-100"></div>
+                </div>
+            </form>
+            <div class="row">
+                <div class="col-12">
+                    <% if(servises.length){ %>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>_id</th>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>Limit</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for(var i=0;i!=servises.length;i++){ %>
+                                    <tr>
+                                        <td>
+                                            <%= servises[i]._id %>
+                                        </td>
+                                        <td>
+                                            <%= servises[i].name %>
+                                        </td>
+                                        <td>
+                                            <%= servises[i].price %>
+                                        </td>
+                                        <td>
+                                            <%= servises[i].limited %>
+                                        </td>
+                                        <td>
+                                            <%= servises[i].time %>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                            </tbody>
+                        </table>
+                        <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include("../partials/footer.ejs") %>

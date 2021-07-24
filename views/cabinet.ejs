@@ -1,0 +1,89 @@
+<%- include("partials/head.ejs") %>
+    <div class="card mb-3 mb-lg-5">
+        <div class="card-header">
+            <h5 class="card-title">Basic info</h5>
+        </div>
+
+        <!-- Body -->
+        <div class="card-body">
+            <!-- Form Group -->
+            <div class="row form-group">
+                <label for="firstNameLabel" class="col-sm-3 col-form-label input-label">ПІБ <i class="far fa-question-circle text-body ml-1" data-toggle="tooltip" data-placement="top" title="" data-original-title="Displayed on public forums, such as Front."></i></label>
+
+                <div class="col-sm-9">
+                    <div class="input-group">
+                        <input type="text" class="form-control" value="<%= auth[0].name %>" disabled>
+                    </div>
+                </div>
+            </div>
+            <!-- End Form Group -->
+
+            <!-- Form Group -->
+            <div class="row form-group">
+                <label for="emailLabel" class="col-sm-3 col-form-label input-label">Email</label>
+
+                <div class="col-sm-9">
+                    <input type="email" class="form-control" value="<%= auth[0].email %>" disabled>
+                </div>
+            </div>
+            <!-- End Form Group -->
+
+            <!-- Form Group -->
+            <div class="js-add-field row form-group" data-hs-add-field-options="{
+                &quot;template&quot;: &quot;#addPhoneFieldTemplate&quot;,
+                &quot;container&quot;: &quot;#addPhoneFieldContainer&quot;,
+                &quot;defaultCreated&quot;: 0
+              }">
+                <label for="phoneLabel" class="col-sm-3 col-form-label input-label">Телефон <span class="input-label-secondary"></span></label>
+
+                <div class="col-sm-9">
+                    <div class="input-group align-items-center">
+                        <input type="text" class="js-masked-input form-control" value="<%= auth[0].phone %>" disabled>
+
+                        <div class="input-group-append">
+                            <!-- Select -->
+                            <span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="2"><span class="selection"><span class="select2-selection custom-select" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-phoneSelect-d3-container"><span class="select2-selection__rendered" id="select2-phoneSelect-d3-container" role="textbox" aria-readonly="true" title="Mobile"><span>Mobile</span></span>
+                            <span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span>
+                            </span>
+                            </span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                            <!-- End Select -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Form Group -->
+
+            <!-- Form Group -->
+            <div class="row form-group">
+                <label class="col-sm-3 col-form-label input-label">Статус</label>
+
+                <div class="col-sm-9">
+                    <!-- Quill -->
+                    <div class="quill-custom">
+                        <div class="js-quill ql-container ql-snow" style="min-height: 15rem;" data-hs-quill-options="{
+                   &quot;placeholder&quot;: &quot;Type your message...&quot;,
+                    &quot;modules&quot;: {
+                      &quot;toolbar&quot;: [
+                        [&quot;bold&quot;, &quot;italic&quot;, &quot;underline&quot;, &quot;strike&quot;, &quot;link&quot;, &quot;image&quot;, &quot;blockquote&quot;, &quot;code&quot;, {&quot;list&quot;: &quot;bullet&quot;}]
+                      ]
+                    }
+                   }">
+                            <div>
+                                <% if(auth[0].status == "Un active"){ %>
+                                    <form action="/cabinet" method="post">
+                                        <input type="hidden" name="userid" value="<%= auth[0]._id %> ">
+                                        <button type="submit" class="btn btn-xs btn-primary">Оплатити</button>
+                                    </form>
+                                    <% }else{ %>
+                                        <p>Активний </p>
+                                        <% } %>
+                            </div>
+                            <div class="ql-clipboard" contenteditable="true" tabindex="-1"></div>
+                        </div>
+                    </div>
+                    <!-- End Quill -->
+                </div>
+            </div>
+            <!-- End Form Group -->
+        </div>
+        <%- include("partials/footer.ejs") %>

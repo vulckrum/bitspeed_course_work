@@ -1,0 +1,47 @@
+<!-- ========== HEADER ========== -->
+<header id="header" class="header header-sticky-top" data-hs-header-options='{
+          "fixMoment": 1000,
+          "fixEffect": "slide"
+        }'>
+    <div class="header-section">
+        <div id="logoAndNav" class="container">
+            <!-- Nav -->
+            <nav class="navbar navbar-expand py-0">
+                <!-- Logo -->
+                <a class="navbar-brand" href="#" aria-label="Front">
+                    <img src="/svg/logos/logo.svg" alt="Logo">
+                </a>
+                <!-- End Logo -->
+
+                <!-- Navigation -->
+                <div class="navbar-nav-scroll navbar-body">
+                    <ul class="navbar-nav my-0">
+                        <li class="navbar-nav-item">
+                            <a class="nav-link" href="/contact">Контакти</a>
+                        </li>
+                        <% if(auth == false){ %>
+                            <li class="nav-item navbar-nav-last-item">
+                                <a href="/login">Login</a>
+                            </li>
+                            <li class="nav-item navbar-nav-last-item">
+                                <a href="/register">Register</a>
+                            </li>
+                            <% }else{ %>
+                                <li class="navbar-nav-item">
+                                    <a class="nav-link" href="/servise">Додаткові послуги</a>
+                                </li>
+                                <li class="nav-item navbar-nav-last-item">
+                                    <a href="/cabinet">
+                                        <%= auth[0].login %>
+                                    </a>
+                                </li>
+                                <% } %>
+                    </ul>
+                </div>
+                <!-- End Navigation -->
+            </nav>
+            <!-- End Nav -->
+        </div>
+    </div>
+</header>
+<!-- ========== END HEADER ========== -->

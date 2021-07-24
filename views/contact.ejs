@@ -1,0 +1,47 @@
+<%- include("partials/head.ejs") %>
+    <div class="position-relative">
+        <!-- Contacts Section -->
+        <div class="bg-primary bg-img-hero" style="background-image: url(/svg/components/abstract-shapes-5.svg);">
+            <div class="container space-top-2 space-top-lg-3 space-bottom-1">
+                <!-- Title -->
+                <div class="w-lg-50 text-center text-white mx-lg-auto mb-7">
+                    <span class="d-block small text-white-70 font-weight-bold text-cap mb-2">Звяжись з нами</span>
+                    <h2 class="text-white text-lh-lg">Введить своє питаня нище і наші консультанти з <span class="text-warning">радістю</span> дадуть відповідь на ваше питання.</h2>
+                </div>
+                <!-- End Title -->
+
+                <div class="position-relative w-lg-50 z-index-2 mx-lg-auto">
+                    <!-- Form -->
+                    <form class="js-validate card shadow-lg p-4 p-lg-7">
+                        <div class="js-form-message form-group mb-4">
+                            <label for="inputName" class="input-label">ПІБ</label>
+                            <input type="text" class="form-control" name="name" id="inputName" placeholder="Alex Hecker" aria-label="Віталій" required data-msg="Please enter your name.">
+                        </div>
+                        <div class="js-form-message form-group mb-4">
+                            <label for="emailAddressExample2" class="input-label">Email</label>
+                            <input type="email" class="form-control" name="emailAddressExample2" id="emailAddressExample2" placeholder="alexhecker@pixeel.com" aria-label="alexhecker@pixeel.com" required data-msg="Please enter a valid email address.">
+                        </div>
+                        <div class="js-form-message form-group mb-4">
+                            <label for="descriptionTextarea" class="input-label">Питання</label>
+                            <textarea class="form-control" rows="3" id="descriptionTextarea" placeholder="Hi there, I would like to ..." required data-msg="Please enter your message."></textarea>
+                        </div>
+
+                        <div class="d-md-flex justify-content-md-end">
+                            <button type="submit" class="btn btn-primary btn-wide transition-3d-hover">Запитати</button>
+                        </div>
+                    </form>
+                    <!-- End Form -->
+                </div>
+            </div>
+        </div>
+        <!-- End Contacts Section -->
+
+        <!-- SVG Shape -->
+        <figure class="position-absolute right-0 bottom-0 left-0">
+            <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1920 323" enable-background="new 0 0 1920 323" xml:space="preserve" style="margin-bottom: -8px;">
+        <polygon fill="#fff" points="0,323 1920,323 1920,0 "/>
+      </svg>
+        </figure>
+        <!-- End SVG Shape -->
+    </div>
+    <%- include("partials/footer.ejs") %>

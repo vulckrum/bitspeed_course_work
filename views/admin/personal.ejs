@@ -1,0 +1,105 @@
+<%- include("../partials/head.ejs") %>
+    <div class="space-3">
+        <div class="container">
+            <form action="/admin/personal" method="post">
+                <div class="row">
+                    <div class="col-md-6 mb-3 mb-sm-6">
+                        <!-- Input -->
+                        <div class="js-form-message">
+                            <label class="input-label">Name</label>
+                            <input type="text" class="form-control" name="name" placeholder="Test" required="">
+                        </div>
+                        <!-- End Input -->
+                    </div>
+
+                    <div class="col-md-6 mb-3 mb-sm-6">
+                        <!-- Input -->
+                        <div class="js-form-message">
+                            <label class="input-label">Phone</label>
+                            <input type="text" class="form-control" name="phone" placeholder="15" required="">
+                        </div>
+                        <!-- End Input -->
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col-md-6 mb-3 mb-sm-6">
+                        <!-- Input -->
+                        <div class="js-form-message">
+                            <label class="input-label">Email</label>
+                            <input type="email" class="form-control" name="email" placeholder="15" required="">
+                        </div>
+                        <!-- End Input -->
+                    </div>
+                    <div class="col-md-6 mb-3 mb-sm-6">
+                        <!-- Input -->
+                        <div class="js-form-message">
+                            <label class="input-label">Role</label>
+                            <select class="form-control" name="role">
+                                <% for(var i =0;i!=role.length;i++) {%> 
+                                    <option value="<%= role[i]._id %> "><%= role[i].name %> </option>
+                                    <% } %> 
+                            </select>
+                        </div>
+                        <!-- End Input -->
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col-md-6 mb-3 mb-sm-6">
+                        <!-- Input -->
+                        <div class="js-form-message">
+                            <label class="input-label">Salary</label>
+                            <input type="number" class="form-control" name="salary" placeholder="15" required="">
+                        </div>
+                        <!-- End Input -->
+                    </div>
+                    <div class="col-md-6 mb-3 mb-sm-6">
+                        <label class="text-white">.</label>
+                        <button type="submit" class="btn btn-primary w-100">Add tarif</button>
+                    </div>
+
+                    <div class="w-100"></div>
+                </div>
+            </form>
+            <div class="row">
+                <div class="col-12">
+                    <% if(personal.length){ %>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>_id</th>
+                                    <th>Name</th>
+                                    <th>Phone</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Salary</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for(var i=0;i!=personal.length;i++){ %>
+                                    <tr>
+                                        <td>
+                                            <%= personal[i]._id %>
+                                        </td>
+                                        <td>
+                                            <%= personal[i].name %>
+                                        </td>
+                                        <td>
+                                            <%= personal[i].phone %>
+                                        </td>
+                                        <td>
+                                            <%= personal[i].email %>
+                                        </td>
+                                        <td>
+                                            <%= personal[i].role %>
+                                        </td>
+                                        <td>
+                                            <%= personal[i].salary %>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                            </tbody>
+                        </table>
+                        <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include("../partials/footer.ejs") %>

@@ -1,0 +1,112 @@
+<%- include("partials/head.ejs") %>
+
+    <form class="row space-2" method="POST">
+        <div class="col-6">
+            <div class="form-group">
+                <label for="exampleFormControlSelect2">Оберіть потрібні послуги</label>
+                <select multiple class="form-control" name="servises" id="exampleFormControlSelect2">
+                    <% for(var i=0; i != servise.length;i++){ %> 
+                        <option data-price='<%= servise[i].price %> ' id="<%= servise[i]._id %> " value="<%= servise[i]._id %> "><%= servise[i].name %> </option>
+                        <% } %> 
+                </select>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Повідомленя</label>
+                <textarea class="form-control" name="mess" id="exampleFormControlTextarea1" style="max-height: 100px;" rows="3"></textarea>
+            </div>
+        </div>
+
+        <div class="w-100"></div>
+        <div class="col-6">
+            <div class="js-form-message">
+                <label class="input-label">Адреса</label>
+                <input type="text" class="form-control" name="addres" required="">
+            </div>
+        </div>
+        <div class="col-6">
+            <label for="exampleFormControlTextarea1">Сума : 
+                <span id="total-price">$0</span>
+        </label>
+            <button class="btn btn-primary w-100 h-50" type="submit">Замовити</button>
+        </div>
+    </form>
+    <!-- Articles Section -->
+    <div class="container">
+        <!-- Title -->
+        <div class="w-md-80 w-lg-60 text-center mx-md-auto mb-5 mb-md-9">
+            <h2>Нас обирають за</h2>
+        </div>
+        <!-- End Title -->
+
+        <div class="row">
+            <div class="col-md-6 col-lg-4 mb-3 mb-lg-0">
+                <!-- Card -->
+                <a class="card card-bg-light h-100 shadow-none overflow-hidden transition-3d-hover" href="#">
+                    <div class="row align-items-center">
+                        <div class="col-8 col-md-6">
+                            <div class="py-3 pl-4">
+                                <h2 class="h4">Вигідні цінни</h2>
+                                <span class="font-size-1 font-weight-bold">Перевірь <i class="fas fa-angle-right fa-sm ml-1"></i></span>
+                            </div>
+                        </div>
+                        <div class="col-4 col-md-6 px-0">
+                            <img class="img-fluid" src="/svg/illustrations/apps.svg" alt="SVG">
+                        </div>
+                    </div>
+                </a>
+                <!-- End Card -->
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-3 mb-lg-0">
+                <!-- Card -->
+                <a class="card card-bg-light h-100 shadow-none overflow-hidden transition-3d-hover" href="#">
+                    <div class="row align-items-center">
+                        <div class="col-8 col-md-6">
+                            <div class="py-3 pl-4">
+                                <h2 class="h4">Відкриту статистику</h2>
+                                <span class="font-size-1 font-weight-bold">Перевірь <i class="fas fa-angle-right fa-sm ml-1"></i></span>
+                            </div>
+                        </div>
+                        <div class="col-4 col-md-6 px-0">
+                            <img class="img-fluid" src="/svg/illustrations/calendar.svg" alt="SVG">
+                        </div>
+                    </div>
+                </a>
+                <!-- End Card -->
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <!-- Card -->
+                <a class="card card-bg-light h-100 shadow-none overflow-hidden transition-3d-hover" href="#">
+                    <div class="row align-items-center">
+                        <div class="col-8 col-md-6">
+                            <div class="py-3 pl-4">
+                                <h2 class="h4">Швидкі відповіді</h2>
+                                <span class="font-size-1 font-weight-bold">Перевірь <i class="fas fa-angle-right fa-sm ml-1"></i></span>
+                            </div>
+                        </div>
+                        <div class="col-4 col-md-6 px-0">
+                            <img class="img-fluid" src="/svg/illustrations/communication.svg" alt="SVG">
+                        </div>
+                    </div>
+                </a>
+                <!-- End Card -->
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('exampleFormControlSelect2').onchange = () => {
+            let selectredServise = $("#exampleFormControlSelect2").val()
+            let price = 0;
+            selectredServise.map((e) => {
+                console.log(e)
+                price += parseInt($('#' + e).attr('data-price'))
+            });
+            $("#total-price").text("$" + price)
+
+        }
+    </script>
+    <!-- End Articles Section -->
+    <%- include("partials/footer.ejs") %>

@@ -1,0 +1,36 @@
+<%- include("partials/head.ejs") %>
+    <div class="space-3">
+        <div class="container">
+            <form action="/login" method="post">
+                <div class="row">
+                    <div class="col-md-6 mb-3 mb-sm-6">
+                        <!-- Input -->
+                        <div class="js-form-message">
+                            <label class="input-label">Логін</label>
+                            <input type="text" class="form-control" name="login" placeholder="vitalik line" required="">
+                        </div>
+                        <!-- End Input -->
+                    </div>
+
+                    <div class="col-md-6 mb-3 mb-sm-6">
+                        <!-- Input -->
+                        <div class="js-form-message">
+                            <label class="input-label">Пароль</label>
+                            <input type="password" class="form-control" name="password" placeholder="**********" required="">
+                        </div>
+                        <!-- End Input -->
+                    </div>
+
+                    <div class="w-100"></div>
+
+                    <div class="col-md-12 mb-3 mb-sm-12">
+                        <label class="text-white">.</label>
+                        <button type="submit" class="btn btn-primary w-100">Увійти</button>
+                    </div>
+
+                    <div class="w-100"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <%- include("partials/footer.ejs") %>

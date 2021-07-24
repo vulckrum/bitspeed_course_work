@@ -1,0 +1,37 @@
+<%- include("../partials/head.ejs") %>
+
+    <div class="row">
+        <div class="col-12">
+            <% if(order.length){ %>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>_id</th>
+                            <th>User</th>
+                            <th>Servise</th>
+                            <th>Perfomer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i=0;i!=order.length;i++){ %>
+                            <tr>
+                                <td>
+                                    <%= order[i]._id %>
+                                </td>
+                                <td>
+                                    <%= order[i].user %>
+                                </td>
+                                <td>
+                                    <%= order[i].servise %>
+                                </td>
+                                <td>
+                                    <%= order[i].perfomer[1].name %>
+                                </td>
+                            </tr>
+                            <% } %>
+                    </tbody>
+                </table>
+                <% } %>
+        </div>
+    </div>
+    <%- include("../partials/footer.ejs") %>

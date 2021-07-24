@@ -1,0 +1,68 @@
+<%- include("partials/head.ejs") %>
+    <div class="space-3">
+        <div class="container">
+            <form action="/register" method="post">
+                <div class="w-100 text-center text-danger">
+                    Register Error
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3 mb-sm-6">
+                        <!-- Input -->
+                        <div class="js-form-message">
+                            <label class="input-label">Name</label>
+                            <input type="text" class="form-control" name="name" placeholder="vitalik line" required="">
+                        </div>
+                        <!-- End Input -->
+                    </div>
+
+                    <div class="col-md-6 mb-3 mb-sm-6">
+                        <!-- Input -->
+                        <div class="js-form-message">
+                            <label class="input-label">Phone</label>
+                            <input type="text" class="form-control" name="phone" placeholder="+380970000000" required="">
+                        </div>
+                        <!-- End Input -->
+                    </div>
+
+                    <div class="w-100"></div>
+
+                    <div class="col-md-6 mb-3 mb-sm-6">
+                        <!-- Input -->
+                        <div class="js-form-message">
+                            <label class="input-label">Email</label>
+                            <input type="email" class="form-control" name="email" placeholder="test@test.com" required="">
+                        </div>
+                        <!-- End Input -->
+                    </div>
+
+                    <div class="col-md-6 mb-3 mb-sm-6">
+                        <!-- Input -->
+                        <div class="js-form-message">
+                            <label class="input-label">Login</label>
+                            <input type="text" class="form-control" name="login" placeholder="+380970000000" required="">
+                        </div>
+                        <!-- End Input -->
+                    </div>
+
+                    <div class="w-100"></div>
+
+                    <div class="col-md-6 mb-3 mb-sm-6">
+                        <!-- Input -->
+                        <div class="js-form-message">
+                            <label class="input-label">Login</label>
+                            <input type="password" class="form-control" name="password" placeholder="*******" required="">
+                        </div>
+                        <!-- End Input -->
+                    </div>
+
+                    <div class="col-md-6 mb-3 mb-sm-6">
+                        <label class="text-white">.</label>
+                        <button type="submit" class="btn btn-primary w-100">Register</button>
+                    </div>
+
+                    <div class="w-100"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <%- include("partials/footer.ejs") %>

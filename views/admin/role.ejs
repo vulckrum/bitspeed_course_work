@@ -1,0 +1,65 @@
+<%- include("../partials/head.ejs") %>
+    <div class="space-3">
+        <div class="container">
+            <form action="/admin/role" method="post">
+                <div class="row">
+                    <div class="col-md-6 mb-3 mb-sm-6">
+                        <!-- Input -->
+                        <div class="js-form-message">
+                            <label class="input-label">Name</label>
+                            <input type="text" class="form-control" name="name" placeholder="Test" required="">
+                        </div>
+                        <!-- End Input -->
+                    </div>
+
+                    <div class="col-md-6 mb-3 mb-sm-6">
+                        <!-- Input -->
+                        <div class="js-form-message">
+                            <label class="input-label">Prise</label>
+                            <input type="number" class="form-control" name="prioriti" placeholder="15" required="">
+                        </div>
+                        <!-- End Input -->
+                    </div>
+
+                    <div class="w-100"></div>
+
+                    <div class="col-md-12 mb-3 mb-sm-12">
+                        <button type="submit" class="btn btn-primary w-100">Add tarif</button>
+                    </div>
+
+                    <div class="w-100"></div>
+                </div>
+            </form>
+            <div class="row">
+                <div class="col-12">
+                    <% if(role.length){ %>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>_id</th>
+                                    <th>Name</th>
+                                    <th>Prioriti</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for(var i=0;i!=role.length;i++){ %>
+                                    <tr>
+                                        <td>
+                                            <%= role[i]._id %>
+                                        </td>
+                                        <td>
+                                            <%= role[i].name %>
+                                        </td>
+                                        <td>
+                                            <%= role[i].prioriti %>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                            </tbody>
+                        </table>
+                        <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include("../partials/footer.ejs") %>
